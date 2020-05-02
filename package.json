@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "distance-bnb-reviews",
   "version": "",
   "description": "",
   "author": "",
@@ -8,10 +8,28 @@
     "node": ">=6.13.0"
   },
   "scripts": {
+    "start": "nodemon server/index.js",
+    "react-dev": "webpack -d --watch",
+    "dl-images": "node databases/faker/imageDownloader.js",
+    "seed-data": "node databases/faker/dataGenerator.js"
   },
   "dependencies": {
+    "bluebird": "^3.7.2",
+    "express": "^4.17.1",
+    "faker": "^4.1.0",
+    "mysql": "^2.18.1",
+    "styled-components": "^5.1.0",
+    "underscore": "^1.10.2"
   },
   "devDependencies": {
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor"
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "@babel/preset-react": "^7.9.4",
+    "babel-loader": "^8.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "jest": "^25.5.2",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
   }
 }
