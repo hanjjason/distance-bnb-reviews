@@ -11,7 +11,8 @@
     "start": "nodemon server/index.js",
     "react-dev": "webpack -d --watch",
     "dl-images": "node databases/faker/imageDownloader.js",
-    "seed-data": "node databases/faker/dataGenerator.js"
+    "seed-data": "node databases/faker/dataGenerator.js",
+    "start-db": "my sql -u student -p < databases/schema.sql"
   },
   "dependencies": {
     "bluebird": "^3.7.2",
