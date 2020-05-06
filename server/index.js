@@ -1,8 +1,15 @@
-var express = require('express');
-var app = express();
+const express = require('express');
+const bodyParser = require('body-parser');
+const path = require('path');
+
+const db = require('./helpers/dbQuery.js')
+const parse = require('./helpers/parser.js');
+
 var port = 3001;
-var db = require('./helpers/dbQuery.js')
-var parse = require('./helpers/parser.js');
+var app = express();
+
+app.use(bodyParser.json());
+app.use('/:id', express.static(path.join(__dirname, '../public')));
 
 app.get('/api/reviews/:id', function (req, res) {
   db.queryReviews(req.params.id)

@@ -8,7 +8,7 @@ var parseReviews = (data) => {
   for (let i = 0; i < data.length; i++) {
     overall += data[i].overall;
     communication += data[i].communication;
-    check_in += data[i].check_in;
+    check_in += data[i].checkIn;
     cleanliness += data[i].cleanliness;
     accuracy += data[i].accuracy;
     location += data[i].location;
