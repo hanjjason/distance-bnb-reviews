@@ -4,10 +4,7 @@ import ReviewComponent from './components/review-component';
 
 const App = () => {
   return (
-    <section>
-      <h1>Reviews</h1>
-      <ReviewComponent />
-    </section>
+    <ReviewComponent />
   );
 };
 

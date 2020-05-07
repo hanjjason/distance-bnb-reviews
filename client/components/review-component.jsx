@@ -1,6 +1,9 @@
 import React from 'react';
-import Header from './header';
 import axios from 'axios';
+
+import Header from './header';
+import Ratings from './ratings';
+import Reviews from './reviews';
 
 class ReviewComponent extends React.Component {
   constructor(props) {
@@ -18,13 +21,13 @@ class ReviewComponent extends React.Component {
     this.fetchData()
       .then((res) => {
         let ratings = {};
-        ratings.overall = res.data.overall;
-        ratings.communication = res.data.communication;
-        ratings.check_in = res.data.check_in;
-        ratings.cleanliness = res.data.cleanliness;
-        ratings.accuracy = res.data.accuracy;
-        ratings.location = res.data.location;
-        ratings.value = res.data.value;
+        ratings['Overall'] = res.data.overall;
+        ratings['Communication'] = res.data.communication;
+        ratings['Check-in'] = res.data.check_in;
+        ratings['Cleanliness'] = res.data.cleanliness;
+        ratings['Accuracy'] = res.data.accuracy;
+        ratings['Location'] = res.data.location;
+        ratings['Value'] = res.data.value;
         this.setState({
           reviews: res.data.reviews,
           count: res.data.total_reviews,
@@ -39,7 +42,11 @@ class ReviewComponent extends React.Component {
 
   render() {
     return (
-      <Header />
+      <section>
+        <Header overall={this.state.ratings['Overall']} count={this.state.count} />
+        <Ratings ratings={this.state.ratings} />
+        <Reviews reviews={this.state.reviews} page={this.state.page} />
+      </section>
     );
   }
 }
