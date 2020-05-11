@@ -37,6 +37,7 @@ var parseReviews = (data) => {
       review.profileUrl = data[i].profileUrl;
       review.name = data[i].name;
       review.body = data[i].body;
+      review.date = data[i].date;
       review.response = data[i].response;
       temp.push(review);
       i++;
