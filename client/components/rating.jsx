@@ -1,17 +1,25 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const InLine = styled.div`
-  display: inline;
+const RatingStyle = styled.div`
+  display: flex;
+  margin-bottom: 12px;
+  justify-content: space-between;
+  width: 300px;
 `;
 
 const Meter = styled.progress`
   height: 4px;
-  width: 219px;
+  width: 100%;
   background: rgb(0, 132, 137);
-  -webkit-border-radius: 100px;
-  display: inline-block;
-  vertical-align: middle;
+  flex-grow: 1;
+`;
+
+const InnerDiv = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  flex-grow: 1;
 `;
 
 class Rating extends React.Component {
@@ -21,10 +29,13 @@ class Rating extends React.Component {
 
   render() {
     return (
-      <div>
-        {this.props.category} <Meter role='progressbar' value={(this.props.rating/5)} min='0' max='1' />
-        <InLine>{this.props.rating !== undefined ? this.props.rating.toFixed(2): ''}</InLine>
-      </div>
+      <RatingStyle>
+        <InnerDiv>{this.props.category}</InnerDiv>
+        <InnerDiv>
+          <Meter role='progressbar' value={(this.props.rating/5)} min='0' max='1' />
+          <div>{this.props.rating !== undefined ? this.props.rating.toFixed(2): ''}</div>
+        </InnerDiv>
+      </RatingStyle>
     );
   };
 }
