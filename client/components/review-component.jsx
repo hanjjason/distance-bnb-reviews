@@ -48,6 +48,8 @@ class ReviewComponent extends React.Component {
     this.pageChange = this.pageChange.bind(this);
     this.toggleSearch = this.toggleSearch.bind(this);
     this.setSearch = this.setSearch.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -61,11 +63,19 @@ class ReviewComponent extends React.Component {
         ratings['Accuracy'] = res.data.accuracy;
         ratings['Location'] = res.data.location;
         ratings['Value'] = res.data.value;
-        this.setState({
+        return this.setState({
           reviews: res.data.reviews || [],
           count: res.data.total_reviews || 0,
           ratings: ratings
         });
+      })
+      .then(() => {
+        return this.fetchOwner();
+      })
+      .then((res) => {
+        return this.setState({
+          owner: res.data[0]
+        })
       })
       .catch((err) => {
         console.log(err);
@@ -92,11 +102,26 @@ class ReviewComponent extends React.Component {
   }
 
   toggleSearch() {
-    this.setState({searchActive: false});
+    this.setState({searchActive: false, term: ''});
   }
 
   fetchData() {
     return axios.get('/api/reviews' + window.location.pathname);
+  }
+
+  fetchOwner() {
+    return axios.get('/api/owner' + window.location.pathname);
+  }
+
+  handleChange(event) {
+    this.setState({term: event.target.value});
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    if (this.state.term !== '') {
+      this.setSearch(this.state.term);
+    }
   }
 
   render() {
@@ -113,12 +138,12 @@ class ReviewComponent extends React.Component {
         <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"></link>
         <CombinedHeader>
           <Header overall={this.state.ratings['Overall']} count={this.state.count} />
-          <Search setSearch={this.setSearch} />
+          <Search handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
         </CombinedHeader>
         <Footer></Footer>
         {!this.state.searchActive && <Ratings ratings={this.state.ratings} />}
         {this.state.searchActive && <SearchSummary count={this.state.searchCount} term={this.state.term} toggleSearch={this.toggleSearch} />}
-        <Reviews reviews={reviewProp} page={pageProp} />
+        <Reviews reviews={reviewProp} page={pageProp} owner={this.state.owner} term={this.state.term} />
         {reviewProp.length > 1 && (<Pagination numPages={reviewProp.length} currPage={pageProp} pageChange={this.pageChange} />)}
       </StyleOverview>
     );

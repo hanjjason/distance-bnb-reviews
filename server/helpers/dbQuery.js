@@ -10,6 +10,13 @@ var connection = mysql.createConnection({
 
 Promise.promisifyAll(connection);
 
+var queryOwner = (id) => {
+  return connection.queryAsync(`SELECT users.name, users.profilePic, users.profileUrl
+  FROM users
+  INNER JOIN listings ON listings.userId=users.id
+  WHERE listings.id=${id};`)
+}
+
 var queryReviews = (id) => {
   return connection.queryAsync(`SELECT users.profilePic, users.profileUrl, users.name, reviews.date, reviews.body, reviews.response, ratings.overall, ratings.communication, ratings.checkIn, ratings.cleanliness, ratings.accuracy, ratings.location, ratings.value \
   FROM reviews \
@@ -29,5 +36,6 @@ var querySearch = (id, term) => {
   ORDER BY reviews.date DESC`);
 }
 
+module.exports.queryOwner = queryOwner;
 module.exports.queryReviews = queryReviews;
 module.exports.querySearch = querySearch;

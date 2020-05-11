@@ -11,8 +11,8 @@ const Flex = styled.div`
 const ArrowButton = styled.div`
   width: 32px;
   height: 32px;
-  margin-left: 23px;
-  margin-right: 23px;
+  margin-left: 10px;
+  margin-right: 10px;
   border-radius: 100%;
   border: 1px solid;
   line-height: 28px;
@@ -21,16 +21,16 @@ const ArrowButton = styled.div`
 const Page = styled.div`
   width: 32px;
   height: 32px;
-  margin-left: 23px;
-  margin-right: 23px;
+  margin-left: 10px;
+  margin-right: 10px;
   line-height: 28px;
 `;
 
 const CurrPage = styled.div`
   width: 32px;
   height: 32px;
-  margin-left: 23px;
-  margin-right: 23px;
+  margin-left: 10px;
+  margin-right: 10px;
   color: rgb(255,255,255);
   border-radius: 100%;
   border: 1px solid;

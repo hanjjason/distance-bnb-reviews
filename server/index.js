@@ -18,6 +18,13 @@ app.get('/api/reviews/:id', (req, res) => {
     });
 });
 
+app.get('/api/owner/:id', (req, res) => {
+  db.queryOwner(req.params.id)
+    .then((data) => {
+      res.send(data);
+    });
+});
+
 app.get('/api/reviews/:id/search/', (req, res) => {
   db.querySearch(req.params.id, req.query.term)
     .then((data) => {

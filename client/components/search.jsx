@@ -14,29 +14,12 @@ const SearchIcon = styled.input`
 class Search extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      term: ''
-    };
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleChange(event) {
-    this.setState({term: event.target.value});
-  }
-
-  handleSubmit(event) {
-    event.preventDefault();
-    if (this.state.term !== '') {
-      this.props.setSearch(this.state.term);
-    }
   }
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <SearchStyle type='text' value={this.state.term} onChange={this.handleChange} />
+      <form onSubmit={this.props.handleSubmit}>
+        <SearchStyle type='text' value={this.props.term} onChange={this.props.handleChange} />
         <SearchIcon type='submit' value='&#128269;' />
       </form>
     );
