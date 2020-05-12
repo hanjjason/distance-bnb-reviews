@@ -15,7 +15,7 @@
     "test:coverage": "jest --coverage --colors",
     "dl-images": "node databases/faker/imageDownloader.js",
     "seed-data": "node databases/faker/dataGenerator.js",
-    "start-db": "my sql -u student -p < databases/schema.sql"
+    "start-db": "mysql -u student -p < databases/schema.sql"
   },
   "dependencies": {
     "@babel/cli": "^7.8.4",
