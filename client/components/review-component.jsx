@@ -48,8 +48,8 @@ class ReviewComponent extends React.Component {
     this.pageChange = this.pageChange.bind(this);
     this.toggleSearch = this.toggleSearch.bind(this);
     this.setSearch = this.setSearch.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+
+    this.reviewRef = React.createRef();
   }
 
   componentDidMount() {
@@ -84,6 +84,7 @@ class ReviewComponent extends React.Component {
 
   pageChange(page) {
     this.setState({page: page});
+    window.scrollTo(0, this.reviewRef.current.offsetTop);
   }
 
   setSearch(term) {
@@ -113,17 +114,6 @@ class ReviewComponent extends React.Component {
     return axios.get('/api/owner' + window.location.pathname);
   }
 
-  handleChange(event) {
-    this.setState({term: event.target.value});
-  }
-
-  handleSubmit(event) {
-    event.preventDefault();
-    if (this.state.term !== '') {
-      this.setSearch(this.state.term);
-    }
-  }
-
   render() {
     let reviewProp = this.state.reviews;
     let pageProp = this.state.page;
@@ -134,11 +124,11 @@ class ReviewComponent extends React.Component {
 
 
     return (
-      <StyleOverview>
+      <StyleOverview ref={this.reviewRef}>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"></link>
         <CombinedHeader>
           <Header overall={this.state.ratings['Overall']} count={this.state.count} />
-          <Search handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
+          <Search setSearch={this.setSearch} />
         </CombinedHeader>
         <Footer></Footer>
         {!this.state.searchActive && <Ratings ratings={this.state.ratings} />}

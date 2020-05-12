@@ -18,7 +18,6 @@ const Header = styled.div`
 const NameDate = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
 `;
 
 const Footer = styled.div`
@@ -28,6 +27,7 @@ const Footer = styled.div`
 
 const Body = styled.div`
   margin-bottom: 50px;
+  font-size: 14px;
 `;
 
 const Response = styled.div`
@@ -42,6 +42,10 @@ const ResponseBox = styled.div`
 
 const ResponseDate = styled.div`
   color: rgb(169, 169, 169);
+`;
+
+const MonthDay = styled.div`
+  font-size: 13px;
 `;
 
 class Review extends React.Component {
@@ -79,7 +83,7 @@ class Review extends React.Component {
           <ProfilePic src={this.props.review.profilePic}></ProfilePic>
           <NameDate>
             <div><b>{this.props.review.name}</b></div>
-            <div>{parsedMonth + ' ' + parsedYear}</div>
+            <MonthDay>{parsedMonth + ' ' + parsedYear}</MonthDay>
           </NameDate>
         </Header>
         <Body>{this.props.review.body}</Body>
