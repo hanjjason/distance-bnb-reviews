@@ -84,11 +84,11 @@ class ReviewComponent extends React.Component {
 
   pageChange(page) {
     this.setState({page: page});
-    window.scrollTo(0, this.reviewRef.current.offsetTop);
+    window.scrollTo({left: 0, top: this.reviewRef.current.offsetTop, behavior: 'smooth'});
   }
 
   setSearch(term) {
-    axios.get('/api/reviews' + window.location.pathname + 'search/?term=' + term)
+    axios.get('http://localhost:3001/api/reviews' + window.location.pathname + 'search/?term=' + term)
       .then((res) => {
         this.setState({
           searchActive: true,
@@ -107,11 +107,11 @@ class ReviewComponent extends React.Component {
   }
 
   fetchData() {
-    return axios.get('/api/reviews' + window.location.pathname);
+    return axios.get('http://localhost:3001/api/reviews' + window.location.pathname);
   }
 
   fetchOwner() {
-    return axios.get('/api/owner' + window.location.pathname);
+    return axios.get('http://localhost:3001/api/owner' + window.location.pathname);
   }
 
   render() {

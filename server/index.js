@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
+const cors = require('cors');
 
 const db = require('./helpers/dbQuery.js')
 const parse = require('./helpers/parser.js');
@@ -9,6 +10,7 @@ var port = 3001;
 var app = express();
 
 app.use(bodyParser.json());
+app.use(cors());
 app.use('/:id', express.static(path.join(__dirname, '../public')));
 
 app.get('/api/reviews/:id', (req, res) => {
