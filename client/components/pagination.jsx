@@ -126,11 +126,11 @@ class Pagination extends React.Component {
         {this.state.prevButtonShown && (<ArrowButton onClick={this.clickHandler.bind(null, this.props.currPage - 1)}><div>&lt;</div></ArrowButton>)}
         {pages.map((number) => {
           if (number === '...') {
-            return (<Page>{number}</Page>);
+            return (<Page key={number} >{number}</Page>);
           } else if (number === this.props.currPage) {
-            return (<CurrPage>{number}</CurrPage>);
+            return (<CurrPage key={number} >{number}</CurrPage>);
           } else {
-            return (<Page onClick={this.clickHandler.bind(null, number)}>{number}</Page>);
+            return (<Page key={number} onClick={this.clickHandler.bind(null, number)}>{number}</Page>);
           }
         })}
         {this.state.nextButtonShown && (<ArrowButton onClick={this.clickHandler.bind(null, this.props.currPage + 1)}><div>&gt;</div></ArrowButton>)}

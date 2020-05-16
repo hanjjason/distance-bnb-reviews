@@ -10,8 +10,8 @@ class Reviews extends React.Component {
   render() {
     return (
       <div>
-        {this.props.reviews.length > 0 ? (this.props.reviews[this.props.page - 1]).map((review) => (
-          <Review review={review} owner={this.props.owner} />
+        {this.props.reviews.length > 0 ? (this.props.reviews[this.props.page - 1]).map((review, index) => (
+          <Review key={index} review={review} owner={this.props.owner} />
         )) : ''}
       </div>
     );

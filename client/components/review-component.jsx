@@ -88,7 +88,7 @@ class ReviewComponent extends React.Component {
   }
 
   setSearch(term) {
-    axios.get('http://localhost:3001/api/reviews' + window.location.pathname + 'search/?term=' + term)
+    axios.get('/api/reviews' + window.location.pathname + 'search/?term=' + term)
       .then((res) => {
         this.setState({
           searchActive: true,
@@ -107,11 +107,11 @@ class ReviewComponent extends React.Component {
   }
 
   fetchData() {
-    return axios.get('http://localhost:3001/api/reviews' + window.location.pathname);
+    return axios.get('/api/reviews' + window.location.pathname);
   }
 
   fetchOwner() {
-    return axios.get('http://localhost:3001/api/owner' + window.location.pathname);
+    return axios.get('/api/owner' + window.location.pathname);
   }
 
   render() {

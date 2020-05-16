@@ -15,7 +15,8 @@
     "test:coverage": "jest --coverage --colors",
     "dl-images": "node databases/faker/imageDownloader.js",
     "seed-data": "node databases/faker/dataGenerator.js",
-    "start-db": "mysql -u student -p < databases/schema.sql"
+    "start-db": "mysql -u student -p < databases/schema.sql",
+    "docker:build": "bash docker_build.bash"
   },
   "dependencies": {
     "@babel/cli": "^7.8.4",
@@ -23,10 +24,12 @@
     "bluebird": "^3.7.2",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "express-static-gzip": "^2.0.6",
     "faker": "^4.1.0",
     "mysql": "^2.18.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "serve-static": "^1.14.1",
     "styled-components": "^5.1.0",
     "underscore": "^1.10.2"
   },
@@ -37,6 +40,8 @@
     "babel-jest": "^26.0.1",
     "babel-loader": "^8.1.0",
     "babel-plugin-styled-components": "^1.10.7",
+    "brotli-webpack-plugin": "^1.1.0",
+    "compression-webpack-plugin": "^4.0.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "eslint": "^6.8.0",
@@ -44,6 +49,7 @@
     "jest": "^26.0.1",
     "jest-environment-enzyme": "^7.1.2",
     "jest-enzyme": "^7.1.2",
+    "nodemon": "^2.0.4",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11"
   }

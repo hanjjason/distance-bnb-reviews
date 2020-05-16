@@ -2,11 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import ReviewComponent from './components/review-component';
 
-const App = () => {
+const Reviews = () => {
   return (
     <ReviewComponent />
   );
 };
 
-ReactDOM.render(<App />, document.getElementById('reviews'));
+ReactDOM.render(<Reviews />, document.getElementById('reviews'));
 // 275 char limit, finish word

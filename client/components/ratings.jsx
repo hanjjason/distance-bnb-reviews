@@ -20,7 +20,7 @@ class Ratings extends React.Component {
       <RatingsStyle>
         {this.props.ratings !== undefined ? (Object.keys(this.props.ratings)).map((category) => {
           if (category !== 'Overall') {
-            return (<Rating category={category} rating={this.props.ratings[category]} />)
+            return (<Rating key={category} category={category} rating={this.props.ratings[category]} />)
           }
         }) : ''}
       </RatingsStyle>

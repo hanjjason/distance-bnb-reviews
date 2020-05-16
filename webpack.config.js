@@ -1,10 +1,12 @@
 const path = require('path');
+const CompressionPlugin = require('compression-webpack-plugin');
+const BrotliPlugin = require('brotli-webpack-plugin');
 
 module.exports = {
-  mode: 'development',
+  mode: 'production',
   entry: './client/index.jsx',
   output: {
-    filename: 'bundle.js',
+    filename: 'bundle.[contenthash].js',
     path: path.join(__dirname, 'public'),
   },
   module: {
@@ -21,6 +23,22 @@ module.exports = {
       }
     ]
   },
+  optimization: {
+    nodeEnv: 'production',
+    minimize: true,
+  },
+  plugins: [
+    new CompressionPlugin({
+      algorithm: 'gzip',
+      test: /\.m?js$/
+    }),
+    new BrotliPlugin({
+      asset: '[path].br[query]',
+      test: /\.(js|css|html|svg)$/,
+      threshold: 10240,
+      minRatio: 0.8
+    })
+  ],
   resolve: {
     extensions: ['.js','.jsx', '.json', '.css']
   }
