@@ -3,17 +3,17 @@ A reviews module for a room rental service built using React and Express.JS with
 
 ## Table of Contents
 
-1. [Demo] (#Demo)
+1. [Demo] (#demo)
 1. [Usage](#Usage)
 1. [Requirements](#requirements)
 1. [Development](#development)
 
 ## Demo
 ### Pagination Demo
-![Pagination Gif](https://imgur.com/8XC6ckP)
+![Pagination Gif](https://imgur.com/8XC6ckP.gif)
 
 ### Search Demo
-![Search Gif](https://imgur.com/9Rzt8XL)
+![Search Gif](https://imgur.com/9Rzt8XL.gif)
 
 ## Usage
 
