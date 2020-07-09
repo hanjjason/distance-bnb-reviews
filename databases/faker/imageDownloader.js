@@ -4,7 +4,7 @@ const path = require('path');
 
 var downloadImage = (url, filename) => {
   request(url, {encoding: 'binary'}, function(error, response, body) {
-    fs.writeFile('./images/' + filename, body, 'binary', function (err) {});
+    fs.writeFile('.databases/faker/images/' + filename, body, 'binary', function (err) {});
   });
 }
 

@@ -1,30 +1,31 @@
-# Project Name
-
-> Project description
-
-## Related Projects
-
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+# Distance-BnB: Reviews Module
+A reviews module for a room rental service built using React and Express.JS with a MySQL database.
 
 ## Table of Contents
 
+1. [Demo] (#Demo)
 1. [Usage](#Usage)
 1. [Requirements](#requirements)
 1. [Development](#development)
 
+## Demo
+### Pagination Demo
+![Pagination Gif](https://imgur.com/8XC6ckP)
+
+### Search Demo
+![Search Gif](https://imgur.com/9Rzt8XL)
+
 ## Usage
 
-> Some usage instructions
+Run this command in the root directory to start the server:
+```sh
+npm start
+```
 
 ## Requirements
 
-An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
-
-- Node 6.13.0
-- etc
+- Node 6.14.5
+- MySQL 5.7
 
 ## Development
 
@@ -37,3 +38,17 @@ npm install -g webpack
 npm install
 ```
 
+To seed the database:
+```sh
+npm run start-db
+```
+
+To download placeholder images:
+```sh
+npm run dl-images
+```
+
+To seed the database:
+```sh
+npm run seed-data
+```

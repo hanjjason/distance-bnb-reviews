@@ -88,7 +88,7 @@ class ReviewComponent extends React.Component {
   }
 
   setSearch(term) {
-    axios.get('/api/reviews' + window.location.pathname + 'search/?term=' + term)
+    axios.get('/api/reviews' + window.location.pathname + '/search/?term=' + term)
       .then((res) => {
         this.setState({
           searchActive: true,
